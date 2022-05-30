@@ -745,19 +745,8 @@ ALTER TABLE Paciente
  
  ALTER TABLE Turno
  ADD FOREIGN KEY (estado) REFERENCES TurnoEstado (idEstado),
- ADD FOREIGN KEY (idTurno) REFERENCES TurnoPaciente (idTurno);
- 
- ALTER TABLE TurnoPaciente
- ADD FOREIGN KEY (idTurno) REFERENCES Turno (idTurno),
- ADD FOREIGN KEY (idPaciente) REFERENCES Paciente (idPaciente),
- ADD FOREIGN KEY (idMedico) REFERENCES Medico (idMedico);
- 
-  ALTER TABLE TurnoEstado
- ADD FOREIGN KEY (idEstado) REFERENCES Turno (idEstado);
- 
- ALTER TABLE MedicoEspecialidad
- ADD FOREIGN KEY (idMedico) REFERENCES Medico (idMedico),
- ADD FOREIGN KEY (idEspecialidad) REFERENCES Especialidad (idEspecialidad);
+ ADD FOREIGN KEY (idTurno) REFERENCES TurnoPaciente (idTurno),
+ ADD FOREIGN KEY (idTurno) REFERENCES PagoPaciente (idTurno);
  
  ALTER TABLE Medico
  ADD FOREIGN KEY (idMedico) REFERENCES TurnoPaciente (idMedico),
@@ -769,19 +758,6 @@ ALTER TABLE Paciente
  
  ALTER TABLE Historia
  ADD FOREIGN KEY (idHistoria) REFERENCES HistoriaPaciente (idHistoria);
- 
- ALTER TABLE HistoriaPaciente
- ADD FOREIGN KEY (idHistoria) REFERENCES Historia (idHistoria),
- ADD FOREIGN KEY (idPaciente) REFERENCES Paciente (idPaciente),
- ADD FOREIGN KEY (idMedico) REFERENCES Medico (idMedico);
- 
- ALTER TABLE Pais
- ADD FOREIGN KEY (idPais) REFERENCES Paciente (idPais);
- 
- ALTER TABLE PagoPaciente
- ADD FOREIGN KEY (idPaciente) REFERENCES Paciente (idPaciente),
- ADD FOREIGN KEY (idTurno) REFERENCES Turno (idTurno),
- ADD FOREIGN KEY (idPago) REFERENCES concepto (idPago);
  
  ALTER TABLE Pago
  ADD FOREIGN KEY (idPago) REFERENCES PagoPaciente (idPago);
